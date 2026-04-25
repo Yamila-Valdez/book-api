@@ -37,43 +37,44 @@ book.api/
 ```
 
 ## 🚀 Cómo ejecutar
-
+```bash
 1. Instalar dependencias
-* npm install
+npm install
 
 2. Ejecutar servidor
-* node server.js
+node server.js
 
 3. Ejecutar cliente
 (en otra terminal)
-* node client.js
-
+node client.js
+```
 ## 📡 Comandos disponibles
 
 ## 📖 Libros
-
+```bash
 Obtener todos los libros:
-* GET BOOKS
+GET BOOKS
 
 Agregar un libro:
-* ADD BOOK {"title":"Nombre","author":"Autor","year":2024}
+ADD BOOK {"title":"Nombre","author":"Autor","year":2024}
+```
 
 ## 👤 Autores
-
+```bash
 Obtener todos los autores:
-* GET AUTHORS
+GET AUTHORS
 
 Agregar un autor:
-* ADD AUTHOR {"name":"Nombre del autor"}
-
+ADD AUTHOR {"name":"Nombre del autor"}
+```
 ## 🏢 Publishers
-
+```bash
 Obtener todos los publishers:
-* GET PUBLISHERS
+GET PUBLISHERS
 
 Agregar un publisher:
-* ADD PUBLISHER {"name":"Nombre del publisher"}
-
+ADD PUBLISHER {"name":"Nombre del publisher"}
+```
 ## 🧪 Ejemplo de uso
 
 ```bash
@@ -85,20 +86,21 @@ GET AUTHORS
 
 ADD PUBLISHER {"name":"Penguin"}
 GET PUBLISHERS
-```
+```bash
 * Cada comando debe enviarse en una sola línea desde el cliente.
 
 ## 🧠 Arquitectura
-
+```bash
 Se implementa el patrón MVC (Model - View - Controller):
 
 Models: acceso a datos (archivos JSON)
 Controllers: lógica de negocio y validaciones
 Views: formato de respuesta (JSON)
 Server: manejo de conexiones TCP y procesamiento de comandos
+```
 
 ## 💾 Persistencia
-
+```bash
 Los datos se almacenan en archivos JSON dentro de la carpeta data/.
 
 Cada entidad se guarda de forma independiente:
@@ -106,7 +108,7 @@ Cada entidad se guarda de forma independiente:
 books.json
 authors.json
 publishers.json
-
+```
 ## 👩‍💻 Autoras
 
 * Sofia Mendoza
