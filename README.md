@@ -20,7 +20,6 @@ Permite gestionar **libros, autores y publishers** mediante comandos enviados de
 
 ## 🧱 Estructura del proyecto
 
-```bash
 book.api/
 ├── controllers/
 ├── models/
