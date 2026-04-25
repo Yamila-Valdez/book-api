@@ -85,6 +85,8 @@ GET AUTHORS
 ADD PUBLISHER {"name":"Penguin"}
 GET PUBLISHERS
 
+* Cada comando debe enviarse en una sola línea desde el cliente.
+
 ## 🧠 Arquitectura
 
 Se implementa el patrón MVC (Model - View - Controller):
