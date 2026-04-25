@@ -15,54 +15,62 @@ const server = net.createServer((socket) => {
 
       // 📚 BOOKS
       if (request === "GET BOOKS") {
-        const books = getAllBooks();
-        socket.write(success(books));
+        return socket.write(success(getAllBooks()));
       }
 
       else if (request.startsWith("ADD BOOK")) {
-        // Extraemos los datos JSON del comando
-        const json = request.replace("ADD BOOK ", "");
+        if (!request.includes("{")) {
+          return socket.write(error("Debes enviar datos JSON para agregar un libro"));
+        }
+
+        const json = request.replace("ADD BOOK ", "").trim();
         const bookData = JSON.parse(json);
 
         const newBook = addBook(bookData);
-        socket.write(success(newBook));
+        return socket.write(success(newBook));
       }
 
       // 👤 AUTHORS
       else if (request === "GET AUTHORS") {
-        const authors = getAllAuthors();
-        socket.write(success(authors));
+        return socket.write(success(getAllAuthors()));
       }
 
       else if (request.startsWith("ADD AUTHOR")) {
-        const json = request.replace("ADD AUTHOR ", "");
+        if (!request.includes("{")) {
+          return socket.write(error("Debes enviar datos JSON para agregar un autor"));
+        }
+
+        const json = request.replace("ADD AUTHOR ", "").trim();
         const authorData = JSON.parse(json);
 
         const newAuthor = addAuthor(authorData);
-        socket.write(success(newAuthor));
+        return socket.write(success(newAuthor));
       }
 
       // 🏢 PUBLISHERS
       else if (request === "GET PUBLISHERS") {
-        const publishers = getAllPublishers();
-        socket.write(success(publishers));
+        return socket.write(success(getAllPublishers()));
       }
 
       else if (request.startsWith("ADD PUBLISHER")) {
-        const json = request.replace("ADD PUBLISHER ", "");
+        if (!request.includes("{")) {
+          return socket.write(error("Debes enviar datos JSON para agregar un publisher"));
+        }
+
+        const json = request.replace("ADD PUBLISHER ", "").trim();
         const publisherData = JSON.parse(json);
 
         const newPublisher = addPublisher(publisherData);
-        socket.write(success(newPublisher));
+        return socket.write(success(newPublisher));
       }
 
       // ❌ Comando inválido
       else {
-        socket.write(error("Comando no válido"));
+        return socket.write(error("Comando no válido"));
       }
 
     } catch (err) {
-      socket.write(error("Error procesando la solicitud"));
+      return socket.write(error("Error procesando la solicitud"));
     }
   });
 
