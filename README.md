@@ -39,51 +39,51 @@ book.api/
 ## 🚀 Cómo ejecutar
 
 1. Instalar dependencias
-npm install
+* npm install
 
 2. Ejecutar servidor
-node server.js
+* node server.js
 
 3. Ejecutar cliente
 (en otra terminal)
-node client.js
+* node client.js
 
 ## 📡 Comandos disponibles
 
 ## 📖 Libros
 
 Obtener todos los libros:
-GET BOOKS
+* GET BOOKS
 
 Agregar un libro:
-ADD BOOK {"title":"Nombre","author":"Autor","year":2024}
+* ADD BOOK {"title":"Nombre","author":"Autor","year":2024}
 
 ## 👤 Autores
 
 Obtener todos los autores:
-GET AUTHORS
+* GET AUTHORS
 
 Agregar un autor:
-ADD AUTHOR {"name":"Nombre del autor"}
+* ADD AUTHOR {"name":"Nombre del autor"}
 
 ## 🏢 Publishers
 
 Obtener todos los publishers:
-GET PUBLISHERS
+* GET PUBLISHERS
 
 Agregar un publisher:
-ADD PUBLISHER {"name":"Nombre del publisher"}
+* ADD PUBLISHER {"name":"Nombre del publisher"}
 
 ## 🧪 Ejemplo de uso
 
 ADD BOOK {"title":"1984","author":"George Orwell","year":1949}
-GET BOOKS
+* GET BOOKS
 
 ADD AUTHOR {"name":"George Orwell"}
-GET AUTHORS
+* GET AUTHORS
 
 ADD PUBLISHER {"name":"Penguin"}
-GET PUBLISHERS
+* GET PUBLISHERS
 
 * Cada comando debe enviarse en una sola línea desde el cliente.
 
