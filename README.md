@@ -20,6 +20,7 @@ Permite gestionar **libros, autores y publishers** mediante comandos enviados de
 
 ## 🧱 Estructura del proyecto
 
+```bash
 book.api/
 ├── controllers/
 ├── models/
@@ -33,8 +34,9 @@ book.api/
 ├── client.js
 ├── package.json
 └── README.md
+```
 
-🚀 Cómo ejecutar
+## 🚀 Cómo ejecutar
 
 1. Instalar dependencias
 npm install
@@ -46,9 +48,9 @@ node server.js
 (en otra terminal)
 node client.js
 
-📡 Comandos disponibles
+## 📡 Comandos disponibles
 
-📖 Libros
+## 📖 Libros
 
 Obtener todos los libros:
 GET BOOKS
@@ -56,7 +58,7 @@ GET BOOKS
 Agregar un libro:
 ADD BOOK {"title":"Nombre","author":"Autor","year":2024}
 
-👤 Autores
+## 👤 Autores
 
 Obtener todos los autores:
 GET AUTHORS
@@ -64,7 +66,7 @@ GET AUTHORS
 Agregar un autor:
 ADD AUTHOR {"name":"Nombre del autor"}
 
-🏢 Publishers
+## 🏢 Publishers
 
 Obtener todos los publishers:
 GET PUBLISHERS
@@ -72,7 +74,7 @@ GET PUBLISHERS
 Agregar un publisher:
 ADD PUBLISHER {"name":"Nombre del publisher"}
 
-🧪 Ejemplo de uso
+## 🧪 Ejemplo de uso
 
 ADD BOOK {"title":"1984","author":"George Orwell","year":1949}
 GET BOOKS
@@ -83,7 +85,7 @@ GET AUTHORS
 ADD PUBLISHER {"name":"Penguin"}
 GET PUBLISHERS
 
-🧠 Arquitectura
+## 🧠 Arquitectura
 
 Se implementa el patrón MVC (Model - View - Controller):
 
@@ -92,7 +94,7 @@ Controllers: lógica de negocio y validaciones
 Views: formato de respuesta (JSON)
 Server: manejo de conexiones TCP y procesamiento de comandos
 
-💾 Persistencia
+## 💾 Persistencia
 
 Los datos se almacenan en archivos JSON dentro de la carpeta data/.
 
@@ -102,7 +104,7 @@ books.json
 authors.json
 publishers.json
 
-👩‍💻 Autoras
+## 👩‍💻 Autoras
 
 Sofia Mendoza
 Yamila Valdez Aguilar
