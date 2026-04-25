@@ -2,21 +2,25 @@ const { getPublishers, savePublishers } = require("../models/publishersModel");
 const { v4: uuidv4 } = require("uuid");
 
 const getAllPublishers = () => {
-    return getPublishers();
+  return getPublishers();
 };
 
 const addPublisher = (publisherData) => {
-    const publishers = getPublishers();
+  if (!publisherData.name) {
+    throw new Error("Falta nombre del publisher");
+  }
 
-    const newPublisher = {
-        id: uuidv4(),
-        ...publisherData,
-    };
+  const publishers = getPublishers();
 
-    publishers.push(newPublisher);
-    savePublishers(publishers);
+  const newPublisher = {
+    id: uuidv4(),
+    name: String(publisherData.name).trim(),
+  };
 
-    return newPublisher;
+  publishers.push(newPublisher);
+  savePublishers(publishers);
+
+  return newPublisher;
 };
 
 module.exports = { getAllPublishers, addPublisher };

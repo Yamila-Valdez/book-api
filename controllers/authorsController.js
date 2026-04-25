@@ -2,21 +2,25 @@ const { getAuthors, saveAuthors } = require("../models/authorsModel");
 const { v4: uuidv4 } = require("uuid");
 
 const getAllAuthors = () => {
-    return getAuthors();
+  return getAuthors();
 };
 
 const addAuthor = (authorData) => {
-    const authors = getAuthors();
+  if (!authorData.name) {
+    throw new Error("Falta nombre del autor");
+  }
 
-    const newAuthor = {
-        id: uuidv4(),
-        ...authorData,
-    };
+  const authors = getAuthors();
 
-    authors.push(newAuthor);
-    saveAuthors(authors);
+  const newAuthor = {
+    id: uuidv4(),
+    name: String(authorData.name).trim(),
+  };
 
-    return newAuthor;
+  authors.push(newAuthor);
+  saveAuthors(authors);
+
+  return newAuthor;
 };
 
 module.exports = { getAllAuthors, addAuthor };
