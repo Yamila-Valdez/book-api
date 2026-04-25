@@ -21,15 +21,18 @@ Permite gestionar **libros, autores y publishers** mediante comandos enviados de
 ## 🧱 Estructura del proyecto
 
 book.api/
-│
 ├── controllers/
 ├── models/
 ├── views/
 ├── data/
+│   ├── books.json
+│   ├── authors.json
+│   └── publishers.json
 │
 ├── server.js
 ├── client.js
 ├── package.json
+└── README.md
 
 ---
 
