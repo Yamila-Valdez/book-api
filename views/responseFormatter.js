@@ -1,15 +1,13 @@
-const success = (data) => {
-  return JSON.stringify({
+const success = (data) =>
+  JSON.stringify({
     status: "success",
     data,
   });
-};
 
-const error = (message) => {
-  return JSON.stringify({
+const error = (message) =>
+  JSON.stringify({
     status: "error",
     message,
   });
-};
 
 module.exports = { success, error };
