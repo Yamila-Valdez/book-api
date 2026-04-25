@@ -108,5 +108,5 @@ publishers.json
 
 ## 👩‍💻 Autoras
 
-Sofia Mendoza
-Yamila Valdez Aguilar
+* Sofia Mendoza
+* Yamila Valdez Aguilar
