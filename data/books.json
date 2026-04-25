@@ -1,12 +1,20 @@
 [
   {
-    "id": "7107fd2d-22c0-4fd1-ac6a-0246b4f4697e",
-    "title": "El Principito",
-    "author": "Saint-Exupéry"
+    "id": "bf54633d-4a4d-4c08-a4d7-0ab938d9b583",
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949
   },
   {
-    "id": "57ef9274-5395-4e32-943a-1b75b7ab6367",
-    "title": "El Principito",
-    "author": "Saint-Exupéry"
+    "id": "9024f589-b763-445f-a620-63f264b17900",
+    "title": "Tokio Blues",
+    "author": "Haruki Murakami",
+    "year": 1987
+  },
+  {
+    "id": "ea54a52a-0881-4a57-9f6d-39eb613bcf35",
+    "title": "Catedrales",
+    "author": "Claudia Piñeiro",
+    "year": 2020
   }
 ]

@@ -1,6 +1,14 @@
 [
   {
-    "id": "5ab6542e-1d27-4587-bc49-d51e97e1ad15",
-    "name": "Autor Test"
+    "id": "2cc8ea11-ca51-4eaf-8ae8-1cb55a72f677",
+    "name": "George Orwell"
+  },
+  {
+    "id": "bca87b04-eefb-481b-ac37-90e18e54763a",
+    "name": "Haruki Murakami"
+  },
+  {
+    "id": "cc4f7ef3-75f7-4cd2-a64d-7d51468fae87",
+    "name": "Claudia Piñeiro"
   }
 ]

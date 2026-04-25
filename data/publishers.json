@@ -1,6 +1,14 @@
 [
   {
-    "id": "42afeeea-ded6-4a66-bbca-341065adf262",
-    "name": "Editorial Test"
+    "id": "e18407c1-90b7-4b75-836e-744a75a8a39e",
+    "name": "Penguin"
+  },
+  {
+    "id": "66d50f44-5407-42ab-810b-95a5f0328afc",
+    "name": "Tusquets Editores"
+  },
+  {
+    "id": "7df06fea-b513-458c-ad7e-b3031f8861ba",
+    "name": "Alfaguara"
   }
 ]
