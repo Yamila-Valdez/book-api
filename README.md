@@ -86,10 +86,11 @@ GET AUTHORS
 
 ADD PUBLISHER {"name":"Penguin"}
 GET PUBLISHERS
-```bash
+```
 * Cada comando debe enviarse en una sola línea desde el cliente.
 
 ## 🧠 Arquitectura
+
 ```bash
 Se implementa el patrón MVC (Model - View - Controller):
 
@@ -100,6 +101,7 @@ Server: manejo de conexiones TCP y procesamiento de comandos
 ```
 
 ## 💾 Persistencia
+
 ```bash
 Los datos se almacenan en archivos JSON dentro de la carpeta data/.
 
