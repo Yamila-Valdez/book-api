@@ -76,15 +76,16 @@ Agregar un publisher:
 
 ## 🧪 Ejemplo de uso
 
+```bash
 ADD BOOK {"title":"1984","author":"George Orwell","year":1949}
-* GET BOOKS
+GET BOOKS
 
 ADD AUTHOR {"name":"George Orwell"}
-* GET AUTHORS
+GET AUTHORS
 
 ADD PUBLISHER {"name":"Penguin"}
-* GET PUBLISHERS
-
+GET PUBLISHERS
+```
 * Cada comando debe enviarse en una sola línea desde el cliente.
 
 ## 🧠 Arquitectura
