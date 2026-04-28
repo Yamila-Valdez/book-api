@@ -2,29 +2,42 @@
 
 ## 📌 Descripción
 
-API de gestión de biblioteca desarrollada con Node.js utilizando un servidor TCP (módulo `net`).
+Book API es una aplicación backend desarrollada con Node.js que utiliza un servidor TCP mediante el módulo nativo `net`.
 
-Permite gestionar **libros, autores y publishers** mediante comandos enviados desde un cliente por consola.
+El proyecto permite gestionar libros, autores y editoriales a través de comandos enviados desde un cliente por consola.
+
+Los datos se almacenan de forma persistente en archivos JSON.
 
 ---
 
 ## ⚙️ Tecnologías utilizadas
 
-- Node.js
-- Módulo `net` (TCP)
-- File System (`fs`)
-- UUID
-- Arquitectura MVC
+* Node.js
+* Módulo `net`
+* File System (`fs`)
+* UUID
+* JSON
+* Arquitectura MVC
 
 ---
 
 ## 🧱 Estructura del proyecto
 
-```bash
-book.api/
+```
+book-api/
 ├── controllers/
+│   ├── booksController.js
+│   ├── authorsController.js
+│   └── publishersController.js
+│
 ├── models/
+│   ├── booksModel.js
+│   ├── authorsModel.js
+│   └── publishersModel.js
+│
 ├── views/
+│   └── responseFormatter.js
+│
 ├── data/
 │   ├── books.json
 │   ├── authors.json
@@ -36,81 +49,170 @@ book.api/
 └── README.md
 ```
 
-## 🚀 Cómo ejecutar
-```bash
-1. Instalar dependencias
+---
+
+## 🚀 Cómo ejecutar el proyecto
+
+### 1. Instalar dependencias
+
+```
 npm install
+```
 
-2. Ejecutar servidor
+### 2. Ejecutar el servidor
+
+```
 node server.js
+```
 
-3. Ejecutar cliente
-(en otra terminal)
+El servidor se ejecuta en el puerto `8080`.
+
+### 3. Ejecutar el cliente
+
+En otra terminal:
+
+```
 node client.js
 ```
+
+---
+
 ## 📡 Comandos disponibles
 
-## 📖 Libros
-```bash
-Obtener todos los libros:
-GET BOOKS
+⚠️ Todos los comandos deben enviarse en una sola línea y con formato JSON válido cuando corresponda.
 
-Agregar un libro:
-ADD BOOK {"title":"Nombre","author":"Autor","year":2024}
+---
+
+## 📖 Libros
+
+### Obtener todos los libros
+
 ```
+GET BOOKS
+```
+
+### Agregar un libro
+
+```
+ADD BOOK {"title":"1984","author":"George Orwell","year":1949}
+```
+
+### Eliminar un libro por ID
+
+```
+DELETE BOOK id_del_libro
+```
+
+---
 
 ## 👤 Autores
-```bash
-Obtener todos los autores:
+
+### Obtener todos los autores
+
+```
 GET AUTHORS
-
-Agregar un autor:
-ADD AUTHOR {"name":"Nombre del autor"}
 ```
-## 🏢 Publishers
-```bash
-Obtener todos los publishers:
+
+### Agregar un autor
+
+```
+ADD AUTHOR {"name":"George Orwell","nationality":"Británica"}
+```
+
+---
+
+## 🏢 Editoriales
+
+### Obtener todas las editoriales
+
+```
 GET PUBLISHERS
-
-Agregar un publisher:
-ADD PUBLISHER {"name":"Nombre del publisher"}
 ```
-## 🧪 Ejemplo de uso
 
-```bash
-ADD BOOK {"title":"1984","author":"George Orwell","year":1949}
+### Agregar una editorial
+
+```
+ADD PUBLISHER {"name":"Penguin","country":"Reino Unido"}
+```
+
+---
+
+## 🧪 Ejemplos de uso
+
+```
+ADD BOOK {"title":"Una corte de rosas y espinas","author":"Sarah J. Maas","year":2015}
 GET BOOKS
 
-ADD AUTHOR {"name":"George Orwell"}
+ADD AUTHOR {"name":"Sarah J. Maas","nationality":"Estadounidense"}
 GET AUTHORS
 
-ADD PUBLISHER {"name":"Penguin"}
+ADD PUBLISHER {"name":"Bloomsbury","country":"Reino Unido"}
 GET PUBLISHERS
 ```
-* Cada comando debe enviarse en una sola línea desde el cliente.
 
-## 🧠 Arquitectura
+---
 
-```bash
-Se implementa el patrón MVC (Model - View - Controller):
+## ✅ Ejemplo de respuesta exitosa
 
-Models: acceso a datos (archivos JSON)
-Controllers: lógica de negocio y validaciones
-Views: formato de respuesta (JSON)
-Server: manejo de conexiones TCP y procesamiento de comandos
+```json
+{
+  "status": "success",
+  "data": {
+    "id": "uuid-generado",
+    "title": "1984",
+    "author": "George Orwell",
+    "year": 1949
+  }
+}
 ```
+
+---
+
+## ❌ Ejemplo de respuesta con error
+
+```json
+{
+  "status": "error",
+  "message": "El libro ya existe"
+}
+```
+
+---
+
+## 🧠 Arquitectura MVC
+
+El proyecto aplica el patrón MVC:
+
+* Models: se encargan de leer y guardar datos en archivos JSON.
+* Controllers: contienen la lógica de negocio y las validaciones.
+* Views: formatean las respuestas enviadas al cliente.
+* Server: recibe comandos mediante TCP y coordina el flujo de la aplicación.
+
+---
 
 ## 💾 Persistencia
 
-```bash
-Los datos se almacenan en archivos JSON dentro de la carpeta data/.
+Los datos se almacenan en archivos JSON dentro de la carpeta `data/`.
 
 Cada entidad se guarda de forma independiente:
 
-books.json
-authors.json
-publishers.json
-```
+* books.json
+* authors.json
+* publishers.json
+
+---
+
+## 🛡️ Validaciones implementadas
+
+* Validación de campos obligatorios.
+* Validación del formato JSON.
+* Validación de año numérico en libros.
+* Prevención de duplicados.
+* Manejo de comandos inválidos.
+* Manejo de errores con mensajes claros.
+
+---
+
 ## 👩‍💻 Autoras
 
 * Sofia Mendoza

@@ -1,6 +1,6 @@
 const net = require("net");
 
-const { getAllBooks, addBook } = require("./controllers/booksController");
+const { getAllBooks, addBook, deleteBook } = require("./controllers/booksController");
 const { getAllAuthors, addAuthor } = require("./controllers/authorsController");
 const { getAllPublishers, addPublisher } = require("./controllers/publishersController");
 
@@ -30,6 +30,17 @@ const server = net.createServer((socket) => {
         return socket.write(success(newBook));
       }
 
+      else if (request.startsWith("DELETE BOOK")) {
+        const id = request.replace("DELETE BOOK ", "").trim();
+
+        if (!id) {
+          return socket.write(error("Debes enviar el ID del libro a eliminar"));
+        }
+
+        const deletedBook = deleteBook(id);
+        return socket.write(success(deletedBook));
+      }
+
       // 👤 AUTHORS
       else if (request === "GET AUTHORS") {
         return socket.write(success(getAllAuthors()));
@@ -54,7 +65,7 @@ const server = net.createServer((socket) => {
 
       else if (request.startsWith("ADD PUBLISHER")) {
         if (!request.includes("{")) {
-          return socket.write(error("Debes enviar datos JSON para agregar un publisher"));
+          return socket.write(error("Debes enviar datos JSON para agregar una editorial"));
         }
 
         const json = request.replace("ADD PUBLISHER ", "").trim();
@@ -64,13 +75,12 @@ const server = net.createServer((socket) => {
         return socket.write(success(newPublisher));
       }
 
-      // ❌ Comando inválido
       else {
         return socket.write(error("Comando no válido"));
       }
 
     } catch (err) {
-      return socket.write(error("Error procesando la solicitud"));
+      return socket.write(error(err.message || "Error procesando la solicitud"));
     }
   });
 

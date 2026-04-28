@@ -6,15 +6,24 @@ const getAllPublishers = () => {
 };
 
 const addPublisher = (publisherData) => {
-  if (!publisherData.name) {
-    throw new Error("Falta nombre del publisher");
+  if (!publisherData.name || !publisherData.country) {
+    throw new Error("Faltan datos de la editorial (name, country)");
   }
 
   const publishers = getPublishers();
 
+  const exists = publishers.find(
+    (publisher) => publisher.name.toLowerCase() === publisherData.name.toLowerCase()
+  );
+
+  if (exists) {
+    throw new Error("La editorial ya existe");
+  }
+
   const newPublisher = {
     id: uuidv4(),
     name: String(publisherData.name).trim(),
+    country: String(publisherData.country).trim(),
   };
 
   publishers.push(newPublisher);

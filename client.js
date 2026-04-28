@@ -12,14 +12,19 @@ client.connect(8080, "127.0.0.1", () => {
   console.log("Conectado al servidor 🚀");
   console.log(`
 Comandos disponibles:
+
+📚 BOOKS
 - GET BOOKS
 - ADD BOOK {"title":"...","author":"...","year":...}
+- DELETE BOOK id_del_libro
 
+👤 AUTHORS
 - GET AUTHORS
-- ADD AUTHOR {"name":"..."}
+- ADD AUTHOR {"name":"...","nationality":"..."}
 
+🏢 PUBLISHERS
 - GET PUBLISHERS
-- ADD PUBLISHER {"name":"..."}
+- ADD PUBLISHER {"name":"...","country":"..."}
 
 (Escribí un comando y presioná ENTER)
 `);
